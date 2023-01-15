@@ -54,15 +54,15 @@ app.get("/api/movies", (req, res) => {
     }
 });
 
-app.get('api/movies/:id', (req, res) => {
+app.get('/api/movies/:id', (req, res) => {
     db.getMovieById(req.params.id)
         .then((data) => {
             res.status(201).json(data);
         })
         .catch((err) => {
             res.status(500).json(err);
-        })
-})
+        });
+});
 
 app.put('/api/movie/:id', (req, res) => {
     db.updateMovieById(req.body, req.params.id)
